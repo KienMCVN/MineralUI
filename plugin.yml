@@ -4,6 +4,9 @@ api: 5.0.0
 version: 0.0.1
 author:
 - Kiên MC
+description: Plugin MineralUI Code By Kiên MC
+virions:
+- libPiggyEconomy
 commands:
   mineral:
     description: "Open Menu Mineral"
