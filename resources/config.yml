@@ -1,0 +1,12 @@
+economy:
+   provider: economyapi
+#Get Type Of The Economy
+
+stone-sell: 0.5
+coal-sell: 1
+iron-sell: 1.5
+gold-sell: 2
+redstone-sell: 2.5
+lapis-sell: 2.5
+emerald-sell: 3
+diamond-sell: 3
