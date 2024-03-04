@@ -891,9 +891,9 @@ class Main extends PluginBase implements Listener{
 				case 1:
 				$this->storeAll($player);
 				break;
-				case 2:
+			/**	case 2:
 				$this->customStore($player);
-				break;
+				break;  **/
 			}
 		});
 		$form->setTitle("Mineral");
