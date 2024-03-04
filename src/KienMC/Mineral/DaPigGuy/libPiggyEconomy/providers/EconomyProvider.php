@@ -1,6 +1,6 @@
 <?php
 
-namespace DaPigGuy\libPiggyEconomy\providers;
+namespace KienMC\Mineral\DaPigGuy\libPiggyEconomy\providers;
 
 use pocketmine\player\Player;
 
