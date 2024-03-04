@@ -566,7 +566,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("coal", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -589,7 +588,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 2:
@@ -612,7 +610,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("iron", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -635,7 +632,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 3:
@@ -658,7 +654,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("gold", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -681,7 +676,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 4:
@@ -704,7 +698,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("redstone", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -727,7 +720,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 5:
@@ -750,7 +742,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("lapis", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -773,7 +764,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 6:
@@ -796,7 +786,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("emerald", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -819,7 +808,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 7:
@@ -842,7 +830,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("diamond", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -865,7 +852,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				default:
