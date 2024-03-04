@@ -1,4 +1,5 @@
 <?php
+
 namespace KienMC\Mineral;
 
 use pocketmine\Server;
@@ -900,7 +901,7 @@ class Main extends PluginBase implements Listener{
 		$form->setTitle("Mineral");
 		$form->addButton("Back");
 		$form->addButton("Store All");
-		$form->addButton("Custom Store"); **/
+		$form->addButton("Custom Store"); 
 		$form->sendToPlayer($player);
 	}
 
