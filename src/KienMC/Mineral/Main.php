@@ -20,8 +20,9 @@ class Main extends PluginBase implements Listener{
 	public function onEnable(): void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
-    	$this->economyProvider = libPiggyEconomy::getProvider($this->getConfig()->get("economy"));
-    	$mineralFolder=$this->getDataFolder() . "mineral/";
+		libPiggyEconomy::init();
+    		$this->economyProvider = libPiggyEconomy::getProvider($this->getConfig()->get("economy"));
+    		$mineralFolder=$this->getDataFolder() . "mineral/";
 		if (!is_dir($mineralFolder)){
 			mkdir($mineralFolder);
 		}
