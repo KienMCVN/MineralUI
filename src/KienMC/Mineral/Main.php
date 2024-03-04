@@ -13,14 +13,13 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\data\bedrock\EnchantmentIdMap;
 use pocketmine\item\{ItemBlock, Item, ItemTypeIds, StringToItemParser, LegacyStringToItemParser, LegacyStringToItemParserException};
 use KienMC\Mineral\FormAPI\{Form, FormAPI, SimpleForm, CustomForm, ModalForm};
-use KienMC\Mineral\DaPigGuy\libPiggyEconomy\libPiggyEconomy;
+use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
 
 class Main extends PluginBase implements Listener{
 
 	public function onEnable(): void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
-		libPiggyEconomy::init();
     	$this->economyProvider = libPiggyEconomy::getProvider($this->getConfig()->get("economy"));
     	$mineralFolder=$this->getDataFolder() . "mineral/";
 		if (!is_dir($mineralFolder)){
