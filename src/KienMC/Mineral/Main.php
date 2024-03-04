@@ -17,7 +17,7 @@ use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
 
 class Main extends PluginBase implements Listener{
 
-	public $economyProvider; 
+	public $economyProvider, $cfg; 
 	
 	public function onEnable(): void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -33,8 +33,6 @@ class Main extends PluginBase implements Listener{
 	public function getEconomyProvider(){
 		return $this->economyProvider;
 	}
-
-	public $cfg;
 
 	public function onJoin(PlayerJoinEvent $ev){
 		$player=$ev->getPlayer();
