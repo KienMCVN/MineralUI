@@ -892,7 +892,7 @@ class Main extends PluginBase implements Listener{
 				case 1:
 				$this->storeAll($player);
 				break;
-			/**	case 2:
+				case 2:
 				$this->customStore($player);
 				break;  **/
 			}
@@ -900,7 +900,7 @@ class Main extends PluginBase implements Listener{
 		$form->setTitle("Mineral");
 		$form->addButton("Back");
 		$form->addButton("Store All");
-/**		$form->addButton("Custom Store"); **/
+		$form->addButton("Custom Store"); **/
 		$form->sendToPlayer($player);
 	}
 
@@ -993,95 +993,94 @@ class Main extends PluginBase implements Listener{
 		$player->sendMessage("Stored ".$total);
 	}
 
-/** public function customStore($player){
-	 * I dont know how to code this, help me please
-		$form=new CustomForm(function(Player $player, $data){
-			if($data==null) $this->menuStore($player);
-			if(!isset($data[2])){
-				$player->sendMessage("Please Enter A Number Bigger Than 0");
-				return;
-			}
-			if(!is_numeric($data[2])){
-				$player->sendMessage("Please Enter A Number Bigger Than 0");
-				return;
-			}
-			$data[2]=ceil($data[2]);
-			if($data[2]<1){
-				$player->sendMessage("Please Enter A Number Bigger Than 0");
-				return;
-			}
-			$inv=$player->getInventory();
-			$contents=$inv->getContents();
-			$name=$player->getName();
-			$this->cfg=new Config($this->getDataFolder()."mineral/".$name.".yml",Config::YAML);
-			$amount=$data[2];
-			switch($data[1]){
-				case 0:
-					$total=0;
-					foreach($contents as $slot => $item){
-						if($item instanceof ItemBlock){
-							$id=$item->getBlock()->getTypeId();
-							if($id==BlockTypeIds::STONE || $id==BlockTypeIds::COBBLESTONE && $total<$amount){
-								$count=min($item->getBlock()->getCount(), $amount-$total);
-								$total+=$count;
-								$item->setCount($item->getBlock()->getCount-$count);
-								$inv->setItem($slot, $item);
-							}
-						}
-					}
-					$olddata=$this->cfg->get("stone");
-					$newdata=(int)($olddata+$total);
-					$this->cfg->set("stone",$newdata);
-					$this->cfg->save();
-					$player->sendMessage("Stored ".$total);
-					break;
-				case 1:
-					$total=0;
-					foreach($contents as $slot => $item){
-						if($item instanceof Item){
-							$id=$item->getTypeId();
-							if($id==ItemTypeIds::COAL && $total<$amount){
-								$count=min($item->getCount(), $amount-$total);
-								$total+=$count;
-								$item->setCount($item->getCount-$count);
-								$inv->setItem($slot, $item);
-							}
-						}
-					}
-					$olddata=$this->cfg->get("coal");
-					$newdata=(int)($olddata+$total);
-					$this->cfg->set("coal",$newdata);
-					$this->cfg->save();
-					$player->sendMessage("Stored ".$total);
-					break;
-				default:
-					$player->sendMessage("Error");
-					break;
-			}
-		});
-		$name=$player->getName();
-		$this->cfg=new Config($this->getDataFolder()."mineral/".$name.".yml",Config::YAML);
-		$stone=$this->cfg->get("stone");
-		$coal=$this->cfg->get("coal");
-		$iron=$this->cfg->get("iron");
-		$gold=$this->cfg->get("gold");
-		$redstone=$this->cfg->get("redstone");
-		$lapis=$this->cfg->get("lapis");
-		$emerald=$this->cfg->get("emerald");
-		$diamond=$this->cfg->get("diamond");
-		$form->setTitle("Mineral");
-		$form->addLabel("- Your Stone: ".$stone."\n- Your Coal: ".$coal."\n- Your Iron: ".$iron."\n- Your Gold: ".$gold."\n- Your Redstone: ".$redstone."\n- Your Lapis: ".$lapis."\n- Your Emerald: ".$emerald."\n- Your Diamond: ".$diamond."\n");
-		$form->addDropdown("Choose",["Stone",
-									 "Coal",
-									 "Iron",
-									 "Gold",
-									 "Redstone",
-									 "Lapis",
-									 "Emerald",
-									 "Diamond"
-									]);
-		$form->addInput("Enter A Number:");
-		$form->sendToPlayer($player);
-	}  **/
-
+public function customStore(Player $player) {
+    $form = new CustomForm(function(Player $player, $data){
+        if($data === null) {
+            $this->menuStore($player);
+            return;
+        }
+        
+        if(!isset($data[2]) || !is_numeric($data[2]) || $data[2] < 1) {
+            $player->sendMessage("Please Enter A Number Bigger Than 0");
+            return;
+        }
+        
+        $data[2] = ceil($data[2]);
+        $inv = $player->getInventory();
+        $contents = $inv->getContents();
+        $name = $player->getName();
+        $this->cfg = new Config($this->getDataFolder()."mineral/".$name.".yml", Config::YAML);
+        $amount = $data[2];
+        
+        switch($data[1]) {
+            case 0:
+                $total = 0;
+                foreach($contents as $slot => $item) {
+                    if($item instanceof ItemBlock) {
+                        $id = $item->getBlock()->getId();
+                        if($id === Block::STONE || $id === Block::COBBLESTONE) {
+                            $count = min($item->getCount(), $amount - $total);
+                            $total += $count;
+                            $item->setCount($item->getCount() - $count);
+                            $inv->setItem($slot, $item);
+                        }
+                    }
+                }
+                $olddata = $this->cfg->get("stone");
+                $newdata = (int)($olddata + $total);
+                $this->cfg->set("stone", $newdata);
+                $this->cfg->save();
+                $player->sendMessage("Stored ".$total);
+                break;
+                
+            case 1:
+                $total = 0;
+                foreach($contents as $slot => $item) {
+                    if($item instanceof Item) {
+                        $id = $item->getId();
+                        if($id === Item::COAL) {
+                            $count = min($item->getCount(), $amount - $total);
+                            $total += $count;
+                            $item->setCount($item->getCount() - $count);
+                            $inv->setItem($slot, $item);
+                        }
+                    }
+                }
+                $olddata = $this->cfg->get("coal");
+                $newdata = (int)($olddata + $total);
+                $this->cfg->set("coal", $newdata);
+                $this->cfg->save();
+                $player->sendMessage("Stored ".$total);
+                break;
+                
+            default:
+                $player->sendMessage("Error");
+                break;
+        }
+    });
+    
+    $name = $player->getName();
+    $this->cfg = new Config($this->getDataFolder()."mineral/".$name.".yml", Config::YAML);
+    $stone = $this->cfg->get("stone");
+    $coal = $this->cfg->get("coal");
+    $iron = $this->cfg->get("iron");
+    $gold = $this->cfg->get("gold");
+    $redstone = $this->cfg->get("redstone");
+    $lapis = $this->cfg->get("lapis");
+    $emerald = $this->cfg->get("emerald");
+    $diamond = $this->cfg->get("diamond");
+    
+    $form->setTitle("Mineral");
+    $form->addLabel("- Your Stone: ".$stone."\n- Your Coal: ".$coal."\n- Your Iron: ".$iron."\n- Your Gold: ".$gold."\n- Your Redstone: ".$redstone."\n- Your Lapis: ".$lapis."\n- Your Emerald: ".$emerald."\n- Your Diamond: ".$diamond."\n");
+    $form->addDropdown("Choose",["Stone",
+                                 "Coal",
+                                 "Iron",
+                                 "Gold",
+                                 "Redstone",
+                                 "Lapis",
+                                 "Emerald",
+                                 "Diamond"
+                                ]);
+    $form->addInput("Enter A Number:");
+    $form->sendToPlayer($player);
 }
