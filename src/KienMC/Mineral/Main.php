@@ -522,7 +522,6 @@ class Main extends PluginBase implements Listener{
 						$this->cfg->set("stone", $newdata);
 						$this->cfg->save();
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}else{
 						$count=$data[2];
 						$stacks=ceil($count/64);
@@ -545,7 +544,6 @@ class Main extends PluginBase implements Listener{
 							}
 						}
 						$player->sendMessage("Withrawn Successfully");
-						return;
 					}
 					break;
 				case 1:
