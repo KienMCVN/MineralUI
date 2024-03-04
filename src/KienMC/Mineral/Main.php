@@ -13,7 +13,7 @@ use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\data\bedrock\EnchantmentIdMap;
 use pocketmine\item\{ItemBlock, Item, ItemTypeIds, StringToItemParser, LegacyStringToItemParser, LegacyStringToItemParserException};
 use KienMC\Mineral\FormAPI\{Form, FormAPI, SimpleForm, CustomForm, ModalForm};
-use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
+use KienMC\Mineral\DaPigGuy\libPiggyEconomy\libPiggyEconomy;
 
 class Main extends PluginBase implements Listener{
 
