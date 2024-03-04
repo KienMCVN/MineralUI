@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DaPigGuy\libPiggyEconomy\providers;
+namespace KienMC\Mineral\DaPigGuy\libPiggyEconomy\providers;
 
 use onebone\economyapi\EconomyAPI;
 use pocketmine\player\Player;
