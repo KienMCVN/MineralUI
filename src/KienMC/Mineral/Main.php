@@ -17,6 +17,8 @@ use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
 
 class Main extends PluginBase implements Listener{
 
+	public $economyProvider; 
+	
 	public function onEnable(): void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->saveDefaultConfig();
@@ -27,8 +29,6 @@ class Main extends PluginBase implements Listener{
 			mkdir($mineralFolder);
 		}
 	}
-
-	public $economyProvider;
 
 	public function getEconomyProvider(){
 		return $this->economyProvider;
