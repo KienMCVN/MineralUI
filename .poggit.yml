@@ -3,7 +3,7 @@ build-by-default: true
 branches:
 - main
 projects:
-  MineralUI-V0.0.1:
+  MineralUI:
     path: ""
     libs:
     - src: DaPigGuy/libPiggyEconomy/libPiggyEconomy 
