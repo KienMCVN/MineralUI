@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/KienMCVN/MineralUI-V0.0.1
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/KienMCVN/MineralUI
 build-by-default: true
 branches:
 - main
