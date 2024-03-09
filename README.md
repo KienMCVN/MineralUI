@@ -1,2 +1,2 @@
-# MineralUI-V0.0.1
+# MineralUI
 Plugin MineralUI For Pocketmine-MP 5
